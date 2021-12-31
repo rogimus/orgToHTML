@@ -1,0 +1,26 @@
+#+BEGIN_theorem Problem 1
+
+Let \(E=\mathbb{Q}(\alpha,i)\) where \(\alpha\) is the real fourth
+root of 2 and \(i^2=-1\).
+1. Prove that \([E:\mathbb{Q}]=8\).
+2. Prove that \(E\) is a splitting field for \(x^4-2\) over \(\mathbb{Q}\).
+3. Prove that there is a \(\mathbb{Q}-\) isomorphism \(\phi:\mathbb{Q}(\alpha)\to \mathbb{Q}(i\alpha)\).
+#+END_theorem
+#+BEGIN_proof Proof of 1 
+Firstly \(\alpha\) has minimal polynomial \(x^4-2\).
+Viewing \(\mathbb{Q}\) as a subfield of \(\mathbb{C}\) 
+we see that \(x^4-2\) splits as 
+\[(x-\alpha)(x-e^{i\pi/2}\alpha)(x-e^{i\pi}\alpha)(x-e^{3i\pi/2}\alpha)\]
+Since all of these linear terms are complex, \(x^4-2\) is irreducible 
+over \(\mathbb{Q}\).
+Since it has degree 4 we have 
+\([\mathbb{Q}(\alpha):\mathbb{Q}]=4\).
+
+Similarly we can show \(x^2+1\) is irreducible over 
+\(\mathbb{Q}(\alpha)\) so \([\mathbb{Q}(\alpha,i):\mathbb{Q}(\alpha)]=2\).
+
+By the multiplicativity of the degree of field extensions
+we have 
+\[ [E:\mathbb{Q}] = [E:\mathbb{Q}(\alpha)][\mathbb{Q}(\alpha):\mathbb{Q}] =2\times 4 = 8 \]
+
+#+END_proof
