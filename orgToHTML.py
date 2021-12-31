@@ -1,7 +1,4 @@
-
-
-envs = ["theorem","proof"]
-
+#!/usr/bin/env python3
 
 def boilerplate(f,p):
     f.write("<!DOCTYPE html>\n")
@@ -15,14 +12,6 @@ def boilerplate(f,p):
     f.write("    <script type=\"text/javascript\" async\n")
     f.write("src=\"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML\">\n")
     f.write("</script>\n")
-    """
-    f.write("<script type=\"text/x-mathjax-config\">")
-    f.write("MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});")
-    f.write("</script>")
-    f.write("<script type=\"text/javascript\" async")
-    f.write("src=\"https://example.com/mathjax/MathJax.js?config=TeX-AMS_CHTML\">")
-    f.write("</script>\n")
-    """
     f.write("  </head>\n")
     f.write("  <body>\n")
     f.write("  <content>\n")
@@ -37,7 +26,6 @@ def backboiler(f):
 def divs(f,nf):
     i=0
     l = f.readlines()
-    #nl = 0
     while i < len(l):
         lines = l[i]
         if lines != "\n":
@@ -84,15 +72,14 @@ def divs(f,nf):
             i = i+1
             nf.write("    </p>\n    <p>")
 
+def main():
+    path = input("file name: ")
+    newpath = path[:-3]+"html"
+    file = open(path)
+    newfile = open(newpath, "x")
+    boilerplate(newfile,path)
+    divs(file, newfile)
+    backboiler(newfile)
 
-
-
-
-
-path = input("file name: ")
-newpath = path[:-3]+"html"
-file = open(path)
-newfile = open(newpath, "x")
-boilerplate(newfile,path)
-divs(file, newfile)
-backboiler(newfile)
+if __name__ == "__main__":
+    main()
